@@ -13,31 +13,31 @@ Generated CA configuration:
 Created a CSR and private key for:
 CN = gerald.mokwe.ucll.be
 
-Code
+Code:
 step certificate create gerald.mokwe.ucll.be gerald.mokwe.csr gerald.mokwe.key --csr
 
 3. Sign the Certificate
 With the CA running:
 
-Code
+Code:
 step-ca "$(step path)\config\ca.json"
 Signed the CSR:
 
-Code
+Code:
 step ca sign gerald.mokwe.csr gerald.mokwe.crt
 
 4. Verify the Certificate Chain
 Copied CA certificates:
 
-Code
+Code:
 root.pem
 intermediate.pem
 
 Verified with OpenSSL:
 
-Code
+Code:
 openssl verify -CAfile root.pem -untrusted intermediate.pem gerald.mokwe.crt
 Result:
 
-Code
+Code:
 gerald.mokwe.crt: OK
